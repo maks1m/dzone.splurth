@@ -61,7 +61,9 @@ public class PeriodicTableUtil {
         return result;
     }
 
-    // Given an element name, find the number of distinct valid symbols for that name. E.g. Zuulon -> 11.
+    /**
+     * Given an element name, find the number of distinct valid symbols for that name. E.g. Zuulon -> 11.
+     */
     public static int getNumberOfDistinctSymbols(String elementName) {
         if (elementName == null) {
             return 0;

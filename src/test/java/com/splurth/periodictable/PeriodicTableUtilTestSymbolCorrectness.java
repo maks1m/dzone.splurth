@@ -11,7 +11,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 @RunWith(Parameterized.class)
-public class PeriodicTableUtilTest {
+public class PeriodicTableUtilTestSymbolCorrectness {
 
     @Parameterized.Parameter(value = 0)
     public String elementName;

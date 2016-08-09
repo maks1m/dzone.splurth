@@ -31,4 +31,36 @@ public class PeriodicTableUtil {
         return symbol2Position > -1 && symbol1Position < symbol2Position;
     }
 
+    /**
+     * Find the valid symbol for that name that's first in alphabetical order. E.g.Gozerium -> Ei, Slimyrine -> Ie.
+     */
+    public static String getValidSymbol(String elementName) {
+        if (elementName == null || elementName.length() < 3) {
+            return "";
+        }
+
+        char letter1 = (char) (elementName.charAt(0) | 96);
+        char letter2 = (char) (elementName.charAt(1) | 96);
+
+        for (int i = 1; i < elementName.length(); i++) {
+            char letter = (char) (elementName.charAt(i) | 96);
+            if (letter < letter1 && i < elementName.length() - 1) {
+                letter1 = letter;
+                letter2 = elementName.charAt(i + 1);
+                continue;
+            }
+            if (letter < letter2) {
+                letter2 = letter;
+            }
+        }
+        String result = new String(new char[]{(char) (letter1 - 32), letter2});
+        System.out.println(result);
+        return result;
+    }
+
+    // Given an element name, find the number of distinct valid symbols for that name. E.g. Zuulon -> 11.
+    public static int getNumberOfDistinctSymbols(String elementName) {
+        return 0;
+    }
+
 }

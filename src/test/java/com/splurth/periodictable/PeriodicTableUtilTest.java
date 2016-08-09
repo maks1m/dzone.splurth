@@ -46,7 +46,18 @@ public class PeriodicTableUtilTest {
                 {"Melintzum", "Nn", false},
                 {"Tullium", "Ty", false},
                 {"Gozerium", "Ei", true},
-                {"Slimyrine", "Ie", true}
+                {"Slimyrine", "Ie", true},
+                {"Slimyrine", null, false},
+                {"Slimyrine", "aaa", false},
+                {"Slimyrine", "aa", false},
+                {"Slimyrine", "a", false},
+                {"", "a", false},
+                {"Abcde", "az", false},
+                {"Abcde", "de", true},
+                {"Abcde", "ab", true},
+                {"Abcde", "bc", true},
+                {"Abcde", "ea", false},
+                {null, "a", false}
         });
     }
 

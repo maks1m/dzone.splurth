@@ -1,5 +1,8 @@
 package com.splurth.periodictable;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class PeriodicTableUtil {
 
     /**
@@ -60,7 +63,19 @@ public class PeriodicTableUtil {
 
     // Given an element name, find the number of distinct valid symbols for that name. E.g. Zuulon -> 11.
     public static int getNumberOfDistinctSymbols(String elementName) {
-        return 0;
+        if (elementName == null) {
+            return 0;
+        }
+
+        Set<String> combinations = new HashSet<String>((int) Math.pow(elementName.length(), 2));
+        for (int i = 0; i < elementName.length() - 1; i++) {
+            char letter1 = (char) (elementName.charAt(i) | 96);
+            for (int j = i + 1; j < elementName.length(); j++) {
+                char letter2 = (char) (elementName.charAt(j) | 96);
+                combinations.add(new String(new char[]{letter1, letter2}));
+            }
+        }
+        return combinations.size();
     }
 
 }
